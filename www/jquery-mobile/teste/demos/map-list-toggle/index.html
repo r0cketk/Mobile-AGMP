@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Google Maps - jQuery Mobile Demos</title>
+	<link rel="stylesheet" href="../css/themes/default/jquery.mobile-1.4.5.min.css">
+	<style>
+	.segmented-control { text-align:center; }
+	.segmented-control .ui-controlgroup { display:inline; margin:.2em 0px; }
+
+	#map-page { width:100%; height:100%; }
+	#map-canvas { width:100%; height:100%; margin-top:-30px; padding:0px!important; }
+	#gmap-marker-link { color:#00a0df; text-decoration:none; }
+
+	.ui-gmap-canvas { width:100%; height:100%; }
+	.ui-gmap-infobox { display:none; }
+
+	#show-more .ui-li-heading { text-align:center; }
+	#show-more .ui-icon { visibility:hidden; }
+
+	.ui-li-has-count .ui-li-count { border-color:transparent; }
+	.wrap { white-space:normal; }
+	</style>
+	<link rel="stylesheet" href="../_assets/css/jqm-demos.css">
+	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<script src="../js/jquery.js"></script>
+	<script src="../_assets/js/index.js"></script>
+	<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+	<!-- Google Maps JS assets are loaded at bottom of page for performance -->
+	<script>
+	$( document ).on( "pagecreate", "#map-page", function() {
+		var $mapSwitch = $( "#map-switch" ),
+		    $listSwitch = $( "#list-switch" ),
+			$map = $( "#map-canvas" ),
+	        $list = $( "#list-canvas" );
+	       	$map.hide();
+	       	$map.gmap();
+	       	$list.show();
+
+	    $mapSwitch.on( "click", function( e ){
+	       	$map.show();
+	       	$map.gmap();
+	       	$list.hide();
+	    });
+
+	    $listSwitch.on( "click", function( e ){
+	       	$list.show();
+			$map.hide();
+	    });
+
+	});
+
+	/**
+	 * Geolocation configuration
+	 */
+	var JQM = JQM || {};
+	JQM.geo = {
+		location: "",
+		zip: "",
+		startIndex: "",
+
+	};
+	</script>
+</head>
+<body>
+	<div data-role="page" id="map-page">
+		<div data-role="header" data-position="fixed">
+			<div class="segmented-control ui-bar-d">
+		 	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+	  			<input type="radio" name="switch" id="list-switch">
+				<label for="list-switch">Lista</label>
+	         	<input type="radio" name="switch" id="map-switch" checked="true">
+	         	<label for="map-switch">Mapa</label>
+		    </fieldset>
+			</div>
+		</div>
+		<div role="main" class="ui-content ui-content-list">
+	        <div id="list-canvas">
+	            <ul id="list-results" data-role="listview">
+	            
+	            	<li data-marker-info="-16.6962639,-49.2714273">
+					  <div style="display:none;">
+					    <div class="ui-gmap-marker-info">
+					  	  <h1><a id="gmap-marker-link" href="#">North Memorial Care</a></h1>
+					  	  <p>8398 Jefferson Ct</p>
+					  	</div>
+					  </div>
+	            	  <a href="#">
+	            	  	<h1 class="ui-gmap-marker-title wrap">North Memorial Care</h1>
+	            	  	<div class="ui-li-count">
+	            	  		<span>0.71 miles</span>
+	            	  	</div>
+	            	  </a>
+	            	</li>
+	            	<li data-marker-info="-16.6814607,-49.2586243">
+					  <div style="display:none;">
+					    <div class="ui-gmap-marker-info">
+					  	  <h1><a id="gmap-marker-link" href="#">F1212ast Clinic-Newtown</a></h1>
+					  	  <p>34555 Dove Trl</p>
+					  	</div>
+					  </div>
+	            	  <a href="#">
+	            	  	<h1 class="ui-gmap-marker-title wrap">2121 Clinic-Newtown</h1>
+	            	  	<div class="ui-li-count">
+	            	  		<span>4.15 miles</span>
+	            	  	</div>
+	            	  </a>
+	            	</li>
+					<li data-marker-info="-16.6663575,-49.2403751">
+					  <div style="display:none;">
+					    <div class="ui-gmap-marker-info">
+					  	  <h1><a id="gmap-marker-link" href="#">Fast221 Clinic</a></h1>
+					  	  <p>8888 Fast Rd</p>
+					  	</div>
+					  </div>
+	            	  <a href="#">
+	            	  	<h1 class="ui-gmap-marker-title wrap">Fast221 Clinic</h1>
+	            	  	<div class="ui-li-count">
+	            	  		<span>0.71 miles</span>
+	            	  	</div>
+	            	  </a>
+	            	</li>
+				</ul>
+			</div>
+		</div>
+		<div role="main" class="ui-content" id="map-canvas" data-initial-view="-16.6663575,-49.2403751,5"></div>
+        
+        
+	<!-- Load map assets at bottom for performance -->
+	<script type="text/javascript" src="jquery.gmap.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.0/src/infobox_packed.js"></script>
+	</div>
+
+</body>
+</html>
