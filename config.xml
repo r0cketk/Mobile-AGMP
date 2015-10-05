@@ -1,12 +1,7 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" 
-        id        = "com.phonegap.agmpconvenios"
-        version   = "1.0.1">
-    <name>AGMP</name>
-
-    <description>
-        Lista de convenios da AGMP
-    </description>
-  <author href="http://phonegap.com" email="support@phonegap.com">PhoneGap Team</author>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.helloworld" version="1.0.0">
+  <name>AGMP Convênios</name>
+  <description>Lista de convenios da AGMP</description>
+  <author href="http://www.nateia.com" email="anderson@nateia.com">Nateia Digital - www.nateia.com</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
@@ -67,11 +62,6 @@
   <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
   <access origin="*"/>
-  
-    <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
-    <access origin="http://www.agmp.org.br"  subdomains="true"   /> <!-- allow local pages -->
-	<access origin="*"/>
-	<access origin="tel:*" launch-external="true"/>
   <plugin name="cordova-plugin-whitelist" version="1"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
